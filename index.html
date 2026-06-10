@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afnan Murshed — CS Student & Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0A0A0F;
+      --bg-card:   #111118;
+      --bg-hover:  #16161F;
+      --border:    #1E1E2E;
+      --accent:    #6366F1;
+      --accent-dim:#3B3D8A;
+      --text:      #E8E8F0;
+      --muted:     #94A3B8;
+      --mono:      'JetBrains Mono', monospace;
+      --sans:      'Inter', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2.5rem;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 0; }
+    .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      opacity: 0.4;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 0%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -60%);
+      pointer-events: none;
+    }
+    .hero-content { position: relative; }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .hero-eyebrow::before { content: '> '; }
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .hero-subtitle {
+      font-family: var(--mono);
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
+      color: var(--muted);
+      margin-bottom: 2rem;
+      min-height: 1.8em;
+    }
+    #typed-text { color: var(--accent); }
+    .cursor {
+      display: inline-block;
+      width: 2px; height: 1em;
+      background: var(--accent);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #7577f5; transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--muted); color: var(--text); transform: translateY(-1px); }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      margin-bottom: 3rem;
+      color: var(--text);
+    }
+    .section-divider {
+      width: 40px; height: 2px;
+      background: var(--accent);
+      margin: 0.75rem 0 2.75rem;
+      border-radius: 2px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .exp-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent-dim);
+      transition: background 0.2s;
+    }
+    .exp-card:hover { border-color: var(--accent-dim); background: var(--bg-hover); }
+    .exp-card:hover::before { background: var(--accent); }
+    .exp-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+    .exp-role { font-size: 1rem; font-weight: 600; color: var(--text); }
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(99,102,241,0.1);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .exp-org { font-size: 0.875rem; color: var(--muted); margin-bottom: 1rem; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .exp-bullets li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.65;
+    }
+    .exp-bullets li::before {
+      content: '—';
+      position: absolute; left: 0;
+      color: var(--accent-dim);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.25rem;
+    }
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
+    .project-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .project-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .project-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
+    .tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.2);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .skill-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+    .skill-items { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-item {
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.65rem;
+      border-radius: 5px;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .edu-degree { font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .edu-school { font-size: 0.875rem; color: var(--muted); margin-bottom: 0.75rem; }
+    .edu-badge {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      background: rgba(99,102,241,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(99,102,241,0.25);
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    #contact h2 { margin-bottom: 0.75rem; }
+    .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── FADE IN ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.78rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor { animation: none; opacity: 1; }
+      .fade-up { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">afnan.dev</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+    <div class="container hero-content">
+      <p class="hero-eyebrow">Available for New Grad Roles — Dec 2026</p>
+      <h1>Afnan Murshed</h1>
+      <p class="hero-subtitle">
+        <span id="typed-text"></span><span class="cursor"></span>
+      </p>
+      <p class="hero-desc">
+        4th-year Computer Science student at Carleton University with hands-on co-op experience at the RCMP and Department of National Defence — building software and data tools that actually get used.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="https://linkedin.com/in/afnanmurshed/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+        <a href="mailto:afnanmurshed2003@gmail.com" class="btn btn-ghost">afnanmurshed2003@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label fade-up">Where I've worked</p>
+      <h2 class="fade-up">Experience</h2>
+      <div class="exp-list">
+
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <span class="exp-role">Project Management Officer & Data Analyst</span>
+            <span class="exp-period">Sept 2025 – Present</span>
+          </div>
+          <p class="exp-org">Department of National Defence (DND) · Ottawa, ON · Co-op</p>
+          <ul class="exp-bullets">
+            <li>Built Power BI dashboards giving project teams real-time visibility into schedules, risks, and performance metrics.</li>
+            <li>Led requirements gathering with stakeholders across multiple concurrent initiatives, translating operational needs into digital tools and workflow improvements.</li>
+            <li>Identified bottlenecks through process analysis and implemented automation that reduced administrative overhead and improved reporting quality.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <span class="exp-role">Software Developer & Analyst</span>
+            <span class="exp-period">Apr 2024 – Aug 2025</span>
+          </div>
+          <p class="exp-org">Royal Canadian Mounted Police (RCMP) · Ottawa, ON · 16-Month Co-op</p>
+          <ul class="exp-bullets">
+            <li>Enhanced Java-based applications supporting investigative workflows, working end-to-end across requirements, development, testing, and deployment in an Agile team.</li>
+            <li>Partnered directly with end users to surface workflow pain points and ship solutions that improved usability for operational staff.</li>
+            <li>Contributed to defect resolution and quality assurance across a cross-functional software delivery team.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card fade-up">
+          <div class="exp-header">
+            <span class="exp-role">Coding Instructor</span>
+            <span class="exp-period">Jun 2023 – Aug 2023</span>
+          </div>
+          <p class="exp-org">STEM Camp · Ottawa, ON</p>
+          <ul class="exp-bullets">
+            <li>Taught Python and Java to 40+ students, adapting lesson plans in real-time based on student feedback and learning styles.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-label fade-up">Things I've built</p>
+      <h2 class="fade-up">Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card fade-up">
+          <div class="project-icon">💉</div>
+          <p class="project-name">Insulin Pump Monitoring System</p>
+          <p class="project-desc">Led a 3-person team to build an interactive insulin pump simulation. Defined system requirements using UML use cases, sequence diagrams, and state-machine models, then coordinated delivery using GitHub.</p>
+          <div class="tech-tags">
+            <span class="tag">C++</span>
+            <span class="tag">Qt</span>
+            <span class="tag">UML</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Linux</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
+          <div class="project-icon">👻</div>
+          <p class="project-name">Ghost Hunter System</p>
+          <p class="project-desc">Designed and delivered a state-driven simulation in C, translating requirements into structured system logic with defined milestones and testing scenarios. Balanced technical decisions with project objectives throughout.</p>
+          <div class="tech-tags">
+            <span class="tag">C</span>
+            <span class="tag">Linux</span>
+            <span class="tag">GCC</span>
+            <span class="tag">GDB</span>
+            <span class="tag">State Machines</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-label fade-up">What I work with</p>
+      <h2 class="fade-up">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Languages</p>
+          <div class="skill-items">
+            <span class="skill-item">Java</span>
+            <span class="skill-item">Python</span>
+            <span class="skill-item">C</span>
+            <span class="skill-item">C++</span>
+            <span class="skill-item">JavaScript</span>
+            <span class="skill-item">SQL</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Tools & Platforms</p>
+          <div class="skill-items">
+            <span class="skill-item">Git</span>
+            <span class="skill-item">GitHub</span>
+            <span class="skill-item">Jira</span>
+            <span class="skill-item">Power BI</span>
+            <span class="skill-item">Power Automate</span>
+            <span class="skill-item">SharePoint</span>
+            <span class="skill-item">Excel</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Product & PM</p>
+          <div class="skill-items">
+            <span class="skill-item">Requirements Gathering</span>
+            <span class="skill-item">Stakeholder Mgmt</span>
+            <span class="skill-item">Agile</span>
+            <span class="skill-item">Process Improvement</span>
+            <span class="skill-item">User-Centered Design</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Web</p>
+          <div class="skill-items">
+            <span class="skill-item">HTML</span>
+            <span class="skill-item">CSS</span>
+            <span class="skill-item">Node.js</span>
+            <span class="skill-item">JSON</span>
+            <span class="skill-item">SQLite</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label fade-up">Background</p>
+      <h2 class="fade-up">Education</h2>
+      <div class="edu-card fade-up">
+        <div>
+          <p class="edu-degree">Bachelor of Computer Science · Minor in Business</p>
+          <p class="edu-school">Carleton University · Ottawa, ON · Expected Dec 2026</p>
+          <div class="tech-tags" style="margin-top: 0.75rem;">
+            <span class="tag">Software Engineering</span>
+            <span class="tag">HCI</span>
+            <span class="tag">Systems Programming</span>
+            <span class="tag">Web Applications</span>
+            <span class="tag">Algorithms & Data Structures</span>
+            <span class="tag">Database Management</span>
+          </div>
+        </div>
+        <span class="edu-badge">🏆 Dean's List</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label fade-up">Let's talk</p>
+      <h2 class="fade-up">Get in touch</h2>
+      <p class="contact-sub fade-up">Open to new grad roles, internships, and interesting conversations about software and product.</p>
+      <div class="contact-links fade-up">
+        <a href="mailto:afnanmurshed2003@gmail.com" class="btn btn-primary">Send an email</a>
+        <a href="https://linkedin.com/in/afnanmurshed/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by Afnan Murshed · 2026</p>
+  </footer>
+
+  <script>
+    // ── Typewriter ──
+    const roles = [
+      'Software Developer',
+      'Data Analyst',
+      'CS Student @ Carleton',
+      'Product-minded Engineer',
+    ];
+    let roleIdx = 0, charIdx = 0, deleting = false;
+    const el = document.getElementById('typed-text');
+
+    function type() {
+      const current = roles[roleIdx];
+      if (!deleting) {
+        el.textContent = current.slice(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(type, 1800);
+          return;
+        }
+      } else {
+        el.textContent = current.slice(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          deleting = false;
+          roleIdx = (roleIdx + 1) % roles.length;
+        }
+      }
+      setTimeout(type, deleting ? 45 : 80);
+    }
+    type();
+
+    // ── Fade-in on scroll ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 4) * 0.07}s`;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
