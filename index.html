@@ -34,7 +34,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
@@ -60,11 +60,11 @@
     }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 6rem 0; }
     .container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ── HERO ── */
+    /* HERO */
     #hero {
       min-height: 100vh;
       display: flex; align-items: center;
@@ -143,10 +143,7 @@
       cursor: pointer;
       border: none;
     }
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: #7577f5; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent;
@@ -155,7 +152,7 @@
     }
     .btn-ghost:hover { border-color: var(--muted); color: var(--text); transform: translateY(-1px); }
 
-    /* ── SECTION HEADERS ── */
+    /* SECTION HEADERS */
     .section-label {
       font-family: var(--mono);
       font-size: 0.75rem;
@@ -171,14 +168,8 @@
       margin-bottom: 3rem;
       color: var(--text);
     }
-    .section-divider {
-      width: 40px; height: 2px;
-      background: var(--accent);
-      margin: 0.75rem 0 2.75rem;
-      border-radius: 2px;
-    }
 
-    /* ── EXPERIENCE ── */
+    /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
     .exp-card {
       background: var(--bg-card);
@@ -228,7 +219,7 @@
       color: var(--accent-dim);
     }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -242,10 +233,7 @@
       transition: border-color 0.2s, transform 0.2s;
     }
     .project-card:hover { border-color: var(--accent-dim); transform: translateY(-3px); }
-    .project-icon {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
+    .project-icon { font-size: 1.5rem; margin-bottom: 1rem; }
     .project-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .project-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; }
     .tech-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
@@ -259,7 +247,7 @@
       border-radius: 4px;
     }
 
-    /* ── SKILLS ── */
+    /* SKILLS */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -289,7 +277,7 @@
       border-radius: 5px;
     }
 
-    /* ── EDUCATION ── */
+    /* EDUCATION */
     .edu-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -311,13 +299,29 @@
       white-space: nowrap;
     }
 
-    /* ── CONTACT ── */
+    /* INTERESTS */
+    .interests-row {
+      display: flex; flex-wrap: wrap; gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+    .interest-chip {
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 0.45rem 1rem;
+      border-radius: 20px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .interest-chip:hover { border-color: var(--accent-dim); color: var(--text); }
+
+    /* CONTACT */
     #contact { text-align: center; }
     #contact h2 { margin-bottom: 0.75rem; }
     .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 400px; margin-left: auto; margin-right: auto; }
     .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       border-top: 1px solid var(--border);
       padding: 2rem;
@@ -327,7 +331,7 @@
       color: var(--muted);
     }
 
-    /* ── FADE IN ── */
+    /* FADE IN */
     .fade-up {
       opacity: 0;
       transform: translateY(20px);
@@ -335,7 +339,7 @@
     }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
 
-    /* ── MOBILE ── */
+    /* MOBILE */
     @media (max-width: 640px) {
       nav { padding: 1rem 1.25rem; }
       .nav-links { gap: 1.25rem; }
@@ -374,7 +378,7 @@
         <span id="typed-text"></span><span class="cursor"></span>
       </p>
       <p class="hero-desc">
-        4th-year Computer Science student at Carleton University with hands-on co-op experience at the RCMP and Department of National Defence — building software and data tools that actually get used.
+        4th-year Computer Science student at Carleton University with nearly three years of co-op experience at the RCMP and Department of National Defence — building production software, AI-powered automation, and data tools in fast-paced, high-stakes environments.
       </p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">Get in touch</a>
@@ -393,27 +397,30 @@
 
         <div class="exp-card fade-up">
           <div class="exp-header">
-            <span class="exp-role">Project Management Officer & Data Analyst</span>
+            <span class="exp-role">Digital Solutions Developer</span>
             <span class="exp-period">Sept 2025 – Present</span>
           </div>
           <p class="exp-org">Department of National Defence (DND) · Ottawa, ON · Co-op</p>
           <ul class="exp-bullets">
-            <li>Built Power BI dashboards giving project teams real-time visibility into schedules, risks, and performance metrics.</li>
-            <li>Led requirements gathering with stakeholders across multiple concurrent initiatives, translating operational needs into digital tools and workflow improvements.</li>
-            <li>Identified bottlenecks through process analysis and implemented automation that reduced administrative overhead and improved reporting quality.</li>
+            <li>Developed Python automation scripts integrating Gemini LLM APIs to extract, consolidate, and summarize project data from multiple sources — feeding structured outputs into Power BI dashboards and replacing reports compiled manually each week.</li>
+            <li>Built Power Automate flows with AI Builder that automatically classified incoming project documents by type and risk level, routing them to the right team without manual review — cutting document handling time across 12 project teams.</li>
+            <li>Designed REST API integrations between internal SharePoint systems and external data sources, enabling real-time data synchronization and eliminating manual data entry that previously required daily reconciliation.</li>
+            <li>Architected SharePoint-integrated Power Apps and Power Automate workflows to replace manual tracking processes — eliminating administrative overhead across dozens of projects and enabling same-day status updates instead of weekly syncs.</li>
+            <li>Wrote automated validation scripts in Python to verify API and UI layers of deployed workflows, catching logic failures and LLM output errors before they reached stakeholders.</li>
           </ul>
         </div>
 
         <div class="exp-card fade-up">
           <div class="exp-header">
-            <span class="exp-role">Software Developer & Analyst</span>
+            <span class="exp-role">Software Developer / Analyst</span>
             <span class="exp-period">Apr 2024 – Aug 2025</span>
           </div>
           <p class="exp-org">Royal Canadian Mounted Police (RCMP) · Ottawa, ON · 16-Month Co-op</p>
           <ul class="exp-bullets">
-            <li>Enhanced Java-based applications supporting investigative workflows, working end-to-end across requirements, development, testing, and deployment in an Agile team.</li>
-            <li>Partnered directly with end users to surface workflow pain points and ship solutions that improved usability for operational staff.</li>
-            <li>Contributed to defect resolution and quality assurance across a cross-functional software delivery team.</li>
+            <li>Wrote 200+ JUnit test cases from scratch for Java/JavaFX applications used by RCMP officers in active criminal investigations — covering happy path, edge case, and failure scenarios across business logic and UI layers, each documented against a functional specification.</li>
+            <li>Performed manual exploratory testing before each release cycle, reproducing defects reported by officers in the field, documenting steps to reproduce, and validating fixes directly with developers before sign-off.</li>
+            <li>Integrated the full JUnit test suite into the CI/CD pipeline so tests ran automatically on every code push — cutting QA cycle times by 25% and reducing deployment risk on mission-critical law enforcement software.</li>
+            <li>Analyzed months of production logs to identify recurring null pointer exceptions in a high-use investigative module, traced the root cause to an unhandled edge case, and eliminated the defect entirely during a Java 8 to Java 21 migration.</li>
           </ul>
         </div>
 
@@ -424,7 +431,7 @@
           </div>
           <p class="exp-org">STEM Camp · Ottawa, ON</p>
           <ul class="exp-bullets">
-            <li>Taught Python and Java to 40+ students, adapting lesson plans in real-time based on student feedback and learning styles.</li>
+            <li>Taught Java-based robotics and logic programming to 40+ students, designing hands-on exercises that built foundational problem-solving skills; collaborated with a team of instructors to coordinate curriculum delivery across multiple concurrent tracks.</li>
           </ul>
         </div>
 
@@ -440,9 +447,22 @@
       <div class="projects-grid">
 
         <div class="project-card fade-up">
+          <div class="project-icon">🤖</div>
+          <p class="project-name">Agentic AI Research Pipeline</p>
+          <p class="project-desc">Built an AI agent that takes a natural language prompt, searches a structured internal knowledge base, cross-references findings with live data via the Gemini API, and returns a single consolidated answer — cutting research tasks from 20+ minutes to under 30 seconds. Engineered prompt logic so the agent strictly prioritizes internal sources over external ones, preventing hallucination outside the approved knowledge scope.</p>
+          <div class="tech-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Anthropic API</span>
+            <span class="tag">Gemini API</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Agentic AI</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-up">
           <div class="project-icon">💉</div>
           <p class="project-name">Insulin Pump Monitoring System</p>
-          <p class="project-desc">Led a 3-person team to build an interactive insulin pump simulation. Defined system requirements using UML use cases, sequence diagrams, and state-machine models, then coordinated delivery using GitHub.</p>
+          <p class="project-desc">Led a 3-person team building a real-time safety-critical insulin pump simulation in C++, personally owning the closed-loop delivery control and fault detection modules. Designed and ran a full test suite covering 15+ system states — catching 3 critical state transition bugs that would have caused incorrect insulin delivery in the simulation.</p>
           <div class="tech-tags">
             <span class="tag">C++</span>
             <span class="tag">Qt</span>
@@ -455,7 +475,7 @@
         <div class="project-card fade-up">
           <div class="project-icon">👻</div>
           <p class="project-name">Ghost Hunter System</p>
-          <p class="project-desc">Designed and delivered a state-driven simulation in C, translating requirements into structured system logic with defined milestones and testing scenarios. Balanced technical decisions with project objectives throughout.</p>
+          <p class="project-desc">Solo multi-entity simulation in C modelling a user navigating a building and hunting dynamically moving ghosts — implementing concurrent entity behaviours, room-based spatial logic, and event-driven state machines entirely from scratch. Debugged complex runtime and memory faults using GDB across interacting entities and shared state.</p>
           <div class="tech-tags">
             <span class="tag">C</span>
             <span class="tag">Linux</span>
@@ -484,6 +504,29 @@
             <span class="skill-item">C++</span>
             <span class="skill-item">JavaScript</span>
             <span class="skill-item">SQL</span>
+            <span class="skill-item">Bash</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Testing & QA</p>
+          <div class="skill-items">
+            <span class="skill-item">JUnit</span>
+            <span class="skill-item">Pytest</span>
+            <span class="skill-item">Manual Testing</span>
+            <span class="skill-item">API Testing</span>
+            <span class="skill-item">Test Case Design</span>
+            <span class="skill-item">CI/CD Integration</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">AI & Automation</p>
+          <div class="skill-items">
+            <span class="skill-item">LLM APIs</span>
+            <span class="skill-item">Agentic AI</span>
+            <span class="skill-item">AI Builder</span>
+            <span class="skill-item">GitHub Copilot</span>
+            <span class="skill-item">Prompt Engineering</span>
+            <span class="skill-item">Power Automate</span>
           </div>
         </div>
         <div class="skill-group fade-up">
@@ -493,29 +536,30 @@
             <span class="skill-item">GitHub</span>
             <span class="skill-item">Jira</span>
             <span class="skill-item">Power BI</span>
-            <span class="skill-item">Power Automate</span>
+            <span class="skill-item">Power Apps</span>
             <span class="skill-item">SharePoint</span>
-            <span class="skill-item">Excel</span>
+            <span class="skill-item">PowerShell</span>
           </div>
         </div>
         <div class="skill-group fade-up">
-          <p class="skill-group-title">Product & PM</p>
+          <p class="skill-group-title">Web & Frameworks</p>
           <div class="skill-items">
-            <span class="skill-item">Requirements Gathering</span>
-            <span class="skill-item">Stakeholder Mgmt</span>
-            <span class="skill-item">Agile</span>
-            <span class="skill-item">Process Improvement</span>
-            <span class="skill-item">User-Centered Design</span>
-          </div>
-        </div>
-        <div class="skill-group fade-up">
-          <p class="skill-group-title">Web</p>
-          <div class="skill-items">
-            <span class="skill-item">HTML</span>
-            <span class="skill-item">CSS</span>
+            <span class="skill-item">HTML/CSS</span>
             <span class="skill-item">Node.js</span>
-            <span class="skill-item">JSON</span>
+            <span class="skill-item">React</span>
+            <span class="skill-item">REST APIs</span>
             <span class="skill-item">SQLite</span>
+          </div>
+        </div>
+        <div class="skill-group fade-up">
+          <p class="skill-group-title">Concepts</p>
+          <div class="skill-items">
+            <span class="skill-item">OOP</span>
+            <span class="skill-item">Data Structures</span>
+            <span class="skill-item">System Design</span>
+            <span class="skill-item">Agile / Scrum</span>
+            <span class="skill-item">CI/CD</span>
+            <span class="skill-item">SDLC</span>
           </div>
         </div>
       </div>
@@ -538,9 +582,24 @@
             <span class="tag">Web Applications</span>
             <span class="tag">Algorithms & Data Structures</span>
             <span class="tag">Database Management</span>
+            <span class="tag">Artificial Intelligence & ML</span>
           </div>
         </div>
         <span class="edu-badge">🏆 Dean's List</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERESTS -->
+  <section id="interests">
+    <div class="container">
+      <p class="section-label fade-up">Outside of work</p>
+      <h2 class="fade-up">Interests</h2>
+      <div class="interests-row fade-up">
+        <span class="interest-chip">🏎️ F1 Telemetry & Data Analysis</span>
+        <span class="interest-chip">🔧 Automotive ECU Tuning</span>
+        <span class="interest-chip">⌨️ Custom Mechanical Keyboard Builds</span>
+        <span class="interest-chip">🎬 Cinematography & Video Editing</span>
       </div>
     </div>
   </section>
@@ -550,7 +609,7 @@
     <div class="container">
       <p class="section-label fade-up">Let's talk</p>
       <h2 class="fade-up">Get in touch</h2>
-      <p class="contact-sub fade-up">Open to new grad roles, internships, and interesting conversations about software and product.</p>
+      <p class="contact-sub fade-up">Open to new grad roles and interesting conversations about software, AI, and automation.</p>
       <div class="contact-links fade-up">
         <a href="mailto:afnanmurshed2003@gmail.com" class="btn btn-primary">Send an email</a>
         <a href="https://linkedin.com/in/afnanmurshed/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
@@ -563,12 +622,11 @@
   </footer>
 
   <script>
-    // ── Typewriter ──
     const roles = [
       'Software Developer',
-      'Data Analyst',
+      'AI & Automation Engineer',
       'CS Student @ Carleton',
-      'Product-minded Engineer',
+      'Test & QA Engineer',
     ];
     let roleIdx = 0, charIdx = 0, deleting = false;
     const el = document.getElementById('typed-text');
@@ -595,7 +653,6 @@
     }
     type();
 
-    // ── Fade-in on scroll ──
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
